@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset="UTF-8">
+<title>Levenshtein Demo</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+
+<link rel=stylesheet href="../shared/css/bootstrap.css">
+<style>
+.page-header{padding-bottom:30px;margin-bottom:30px;}
+.str{display:inline;border:0;border-bottom:1px solid #ddd;outline:none;width:150px;padding:2px 4px;transition:border-color 0.2s,width 0.4s;}
+.str:focus{border-bottom-color:#2fa8ec;width:200px;}
+#result tr:first-child th{border-bottom:1px solid #aaa;text-align:right;}
+#result th:first-child{border-right:1px solid #aaa;}
+#result tr:last-child td:last-child{color:#f00;}
+#result th,#result td{padding:5px;}
+#result p{margin-top:20px;margin-bottom:40px;}
+#result p em{font-weight:700;}
+</style>
+</head>
+<body>
+
+<div class=container>
+	<div class=page-header>
+		<h1>Levenshtein Distance Calculator</h1>
+		<p>How many insertions, deletions, and substitutions does it take to turn <input id=str1 class=str value="" placeholder="word 1" tabindex=1> into <input id=str2 class=str value="" placeholder="word 1" tabindex=2>?</p>
+		<button type=button id=submit class="btn btn-primary" tabindex=3>Calculate Levenshtein distance</button>
+	</div>
+	
+	<div id=result>
+		<table>
+		
+		</table>
+		<p>Don't know what to do? Try <i>elephant</i> and <i>relevant</i>, <i>Saturday</i> and <i>Sunday</i>, or <i>Google</i> and <i>Facebook</i>.</p>
+	</div>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery||document.write('<script src="../shares/js/jquery.js"><\/script>')</script>
+<script src="script.js"></script>
+</body>
+</html>
