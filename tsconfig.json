@@ -5,12 +5,11 @@
 		"watch": false,
 		"sourceMap": true,
 		"noImplicitAny": true,
-		"suppressImplicitAnyIndexErrors": true,
 		"module": "system",
 		"jsx": "react"
 	},
 	"files": [
 		"./typings/browser.d.ts",
-		"./script.ts"
+		"./script.tsx"
 	]
 }
