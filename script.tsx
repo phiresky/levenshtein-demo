@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 type Levenpath = {i:number, j:number, type?:string}[];
 const presets = "elephant|relevant,Saturday|Sunday,Google|Facebook".split(",").map(x => x.split("|"));
 function levenshtein(str1: string, str2: string) {
+	str1 = str1.toLowerCase(); str2 = str2.toLowerCase();
 	let m: number[][] = [], paths: [number, number][][] = [],
 		l1 = str1.length, l2 = str2.length;
 	for (let i = 0; i <= l1; i++) {
@@ -66,15 +67,16 @@ class Gui extends React.Component<{}, GuiState> {
 		this.state = initialState;
 	}
 	onClick() {
-		this.setState({str1: $('#str1').val().trim().toLowerCase(),
-			str2: $('#str2').val().trim().toLowerCase()});
+		this.setState({
+			str1: (this.refs["str1"] as HTMLInputElement).value.trim(),
+			str2: (this.refs["str2"] as HTMLInputElement).value.trim()});
 	}
 	render() {
 		const {str1, str2, highlight} = this.state;
 		const header = 
 			<div className="page-header">
 				<h1>Levenshtein Distance Calculator</h1>
-				<p>How many insertions, deletions, and substitutions does it take to turn <input id="str1" className="str" defaultValue={str1} placeholder="word 1" tabIndex={1} /> into <input id="str2" className="str" defaultValue={str2} placeholder="word 2" tabIndex={2} />?</p>
+				<p>How many insertions, deletions, and substitutions does it take to turn <input ref="str1" className="str" defaultValue={str1} placeholder="word 1" tabIndex={1} /> into <input ref="str2" className="str" defaultValue={str2} placeholder="word 2" tabIndex={2} />?</p>
 				<p>Try {presets.map((p,i) => 
 					<a key={i} onClick={() => this.setState({str1:p[0], str2:p[1]})}><i>{p[0]}</i> and <i>{p[1]}</i>{i==presets.length-1?".":", "}</a>
 				)}</p>
@@ -157,7 +159,7 @@ class Gui extends React.Component<{}, GuiState> {
 		if(nextState.str1 !== this.state.str1 || nextState.str2 !== this.state.str2) {
 			const ret = levenshtein(nextState.str1, nextState.str2);
 			this.levenpath = ret.levenpath; this.matrix = ret.matrix;
-			$("#str1").val(nextState.str1).change(); $("#str2").val(nextState.str2).change();
+			$(this.refs["str1"]).val(nextState.str1).change(); $(this.refs["str2"]).val(nextState.str2).change();
 		}
 	}
 	componentDidUpdate(prevProps: any, prevState: GuiState) {
