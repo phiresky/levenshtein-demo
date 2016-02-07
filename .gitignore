@@ -1,3 +1,4 @@
 bin/script.js*
 typings
-jspm_packages
+jspm_packages/*
+!jspm_packages/system.js
