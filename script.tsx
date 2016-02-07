@@ -83,7 +83,7 @@ class Gui extends React.Component<{}, GuiState> {
 				<button type="button" className="btn btn-primary" onClick={this.onClick.bind(this)} tabIndex={3}>Calculate Levenshtein distance</button>
 			</div>;
 		const matrix = this.matrix, levenpath = this.levenpath;
-		
+		let result = <div/>;
 		if(matrix) {
 			let l = levenpath;
 			if(this.state.showTrivial) l = l.slice(1);
@@ -105,10 +105,7 @@ class Gui extends React.Component<{}, GuiState> {
 					onMouseLeave={() => this.setState({highlight:{i:-1,j:-1}})} key={cur.i+","+cur.j}
 				><i>{str2.substr(0, cur.j-1)}<b>{str2[cur.j - 1]}</b>{str1.substr(cur.i)}</i>: {cur.type} {fragment} at position {cur.i}</li>;
 			});
-			return (
-				<div>
-					{header}
-					<div id="result">
+			result = <div id="result">
 						<table ref="table">
 							<thead><tr><th></th><th></th>{str2.split('').map((c,i) => <th key={i}>{c}</th>)}</tr></thead>
 							<tbody>{loop(str1.length+1, i => 
@@ -125,20 +122,13 @@ class Gui extends React.Component<{}, GuiState> {
 							</tbody>
 						</table>
 						<div ref="resultText">
-						<p>The Levenshtein distance is <strong>{matrix[str1.length][str2.length]}</strong>:</p>
-						<ul>{steps}</ul>
-						<label><input type="checkbox" checked={this.state.showTrivial} onChange={e => this.setState({showTrivial:(e.target as HTMLInputElement).checked})} /> Show non-changes</label>
+							<p>The Levenshtein distance is <strong>{matrix[str1.length][str2.length]}</strong>:</p>
+							<ul>{steps}</ul>
+							<label><input type="checkbox" checked={this.state.showTrivial} onChange={e => this.setState({showTrivial:(e.target as HTMLInputElement).checked})} /> Show non-changes</label>
 						</div>
-					</div>
-				</div>
-			);
-		} else {
-			return (
-				<div>
-					{header}
-				</div>
-			);
+					</div>;
 		}
+		return <div>{header}{result}</div>
 	}
 	componentDidMount() {
 		const keyupspan = $('<span style="width:auto;visibility:hidden;"></span>');
