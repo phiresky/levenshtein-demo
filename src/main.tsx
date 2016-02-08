@@ -114,8 +114,10 @@ class Gui extends React.Component<{}, GuiState> {
 									<th>{i>0?str1.charAt(i - 1):""}</th>
 									
 									{loop(str2.length+1, j => <td key={j}
-										style={{opacity:0, fontWeight:levenpath.some(p => p.i==i&&p.j==j)?'700':'inherit'}}
-										className={highlight.i==i&&highlight.j==j?"highlighted":''}
+										style={{opacity:0}}
+										className={
+												 (highlight.i==i&&highlight.j==j?      'highlighted':'')
+											+ ' ' +(levenpath.some(p => p.i==i&&p.j==j)? 'onpath':'')}
 										onMouseEnter={evt => this.setState({highlight: {i,j}})}
 										onMouseLeave={evt => this.setState({highlight: {i:-1,j:-1}})}
 										>{matrix[i][j]}</td>)}
@@ -129,10 +131,12 @@ class Gui extends React.Component<{}, GuiState> {
 						</div>
 					</div>;
 		}
-		return <div>{header}{result}</div>
+		return <div>{header}{result}
+			<footer><a href="https://github.com/phiresky/levenshtein-demo">Source code on GitHub</a> | <a href="http://leojiang.com/experiments/levenshtein/">Original code by Leo Jiang</a></footer>
+		</div>
 	}
 	componentDidMount() {
-		const keyupspan = $('<span style="width:auto;visibility:hidden;"></span>');
+		const keyupspan = $('<span class="str" style="width:auto;visibility:hidden;"></span>');
 		$('body').append(keyupspan);
 		$('input.str')
 			.on('change', function() {
