@@ -10,6 +10,6 @@
 	},
 	"files": [
 		"./typings/browser.d.ts",
-		"./script.tsx"
+		"./src/main.tsx"
 	]
 }

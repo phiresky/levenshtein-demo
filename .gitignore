@@ -1,4 +1,3 @@
-bin/script.js*
+bin
 typings
 jspm_packages/*
-!jspm_packages/system.js

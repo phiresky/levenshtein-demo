@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import $ from 'jquery';
 type Levenpath = {i:number, j:number, type?:string}[];
 const presets = "elephant|relevant,Saturday|Sunday,Google|Facebook".split(",").map(x => x.split("|"));
 function levenshtein(str1: string, str2: string) {
