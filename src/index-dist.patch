@@ -1,7 +1,7 @@
-@@ -31,8 +31,6 @@
- 		<small><a href="https://github.com/phiresky/levenshtein-demo">Source code on GitHub</a> | <a href="http://leojiang.com/experiments/levenshtein/">Original code by Leo Jiang</a></small>
- 	</div>
- </footer>
+@@ -29,8 +29,6 @@
+ </head>
+ <body>
+ <div class="container" id="reactContent"></div>
 -<script src="jspm_packages/system.js"></script>
 -<script src="config.js"></script>
 -<script>System.import("bin/main.js")</script>
