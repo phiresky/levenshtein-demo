@@ -1,5 +1,7 @@
 # Levenshtein Demo
 
+This demo runs completely client-side in the browser. The `index.html` file in the `gh-pages` branch is directly runnable. [A hosted version is available here](https://phiresky.github.io/levenshtein-demo/).
+
 
 ## Building
 
