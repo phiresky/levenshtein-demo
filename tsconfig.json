@@ -2,14 +2,14 @@
 	"compilerOptions": {
 		"target": "es5",
 		"outDir": "bin",
-		"watch": false,
 		"sourceMap": true,
-		"noImplicitAny": true,
-		"module": "system",
-		"jsx": "react"
+		"module": "commonjs",
+		"jsx": "react",
+		"strict": true,
+		"importHelpers": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true
 	},
-	"files": [
-		"./typings/browser.d.ts",
-		"./src/main.tsx"
-	]
+	"exclude": ["node_modules"]
 }

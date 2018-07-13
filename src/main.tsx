@@ -78,10 +78,10 @@ const initialState = {
 };
 type GuiState = typeof initialState;
 class Gui extends React.Component<{}, GuiState> {
-	matrix: number[][];
-	levenpath: Levenpath;
-	constructor() {
-		super();
+	matrix?: number[][];
+	levenpath?: Levenpath;
+	constructor(p: {}) {
+		super(p);
 		this.state = initialState;
 	}
 	onClick() {
@@ -141,7 +141,7 @@ class Gui extends React.Component<{}, GuiState> {
 		const matrix = this.matrix,
 			levenpath = this.levenpath;
 		let result = <div />;
-		if (matrix) {
+		if (matrix && levenpath) {
 			let l = levenpath;
 			if (this.state.showTrivial) l = l.slice(1);
 			else l = l.filter(x => !!x.type);

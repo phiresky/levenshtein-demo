@@ -1,36 +1,104 @@
 <!doctype html>
 <html lang=en>
-<head>
-<meta charset="UTF-8">
-<title>Levenshtein Demo</title>
-<meta name=viewport content="width=device-width,initial-scale=1">
 
-<link rel=stylesheet href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<style>
-.page-header{padding-bottom:30px;margin-bottom:30px;}
-.str{width:60px;border:0;border-bottom:1px solid #ddd;outline:none;padding:2px 4px;transition:border-color 0.2s,width 0.4s;font-weight: bold;}
-.str:focus{border-bottom-color:#2fa8ec;width:200px;}
-#result thead th {border-bottom:1px solid #aaa;text-align: center;}
-#result td,th {min-width: 2em;text-align: center;}
-#result th:first-child{border-right:1px solid #aaa;}
-#result tr:last-child td:last-child{color:#a00;font-weight:bold;}
-#result th,#result td{padding:5px;}
-#result table{margin-bottom:20px}
-#result p em{font-weight:bold}
-td.onpath{background-color:lightgray}
-td.onpath.highlighted, li.highlighted {background-color: #ff5500}
-a{cursor:pointer}
-*{font-size: 18px;}
-footer *{font-size:70%; }
-.grayed{color:gray}
-body > .container{ padding-bottom: 70px; }
-footer { background-color: white}
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Levenshtein Demo</title>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+
+    <link rel=stylesheet href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <style>
+        .page-header {
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .str {
+            width: 60px;
+            border: 0;
+            border-bottom: 1px solid #ddd;
+            outline: none;
+            padding: 2px 4px;
+            transition: border-color 0.2s, width 0.4s;
+            font-weight: bold;
+        }
+
+        .str:focus {
+            border-bottom-color: #2fa8ec;
+            width: 200px;
+        }
+
+        #result thead th {
+            border-bottom: 1px solid #aaa;
+            text-align: center;
+        }
+
+        #result td,
+        th {
+            min-width: 2em;
+            text-align: center;
+        }
+
+        #result th:first-child {
+            border-right: 1px solid #aaa;
+        }
+
+        #result tr:last-child td:last-child {
+            color: #a00;
+            font-weight: bold;
+        }
+
+        #result th,
+        #result td {
+            padding: 5px;
+        }
+
+        #result table {
+            margin-bottom: 20px
+        }
+
+        #result p em {
+            font-weight: bold
+        }
+
+        td.onpath {
+            background-color: lightgray
+        }
+
+        td.onpath.highlighted,
+        li.highlighted {
+            background-color: #ff5500
+        }
+
+        a {
+            cursor: pointer
+        }
+
+        * {
+            font-size: 18px;
+        }
+
+        footer * {
+            font-size: 70%;
+        }
+
+        .grayed {
+            color: gray
+        }
+
+        body>.container {
+            padding-bottom: 70px;
+        }
+
+        footer {
+            background-color: white
+        }
+    </style>
 </head>
+
 <body>
-<div class="container" id="reactContent"></div>
-<script src="jspm_packages/system.js"></script>
-<script src="config.js"></script>
-<script>System.import("bin/main.js")</script>
+    <div class="container" id="reactContent"></div>
+    <script src="src/main.tsx"></script>
 </body>
+
 </html>
